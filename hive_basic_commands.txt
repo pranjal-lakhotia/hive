@@ -1,0 +1,16 @@
+Alter Table commands
+alter table tab add columns(col4 string, col5 int);
+alter table tab change column col1 col1 int after col3;
+alter table tab change column col2 new_col2 string;
+alter table tab rename to tab1;
+
+Insert Table commands
+create table developer_tab (id int,name string,desg string) stored as textfile;
+create table manager_tab (id int,name string,desg string) stored as textfile;
+from emp_tab insert into table developer_tab select col1,col2,col3 where col3 ='Developer' insert into table manager_tab select col1,col2,col3 where col3='Mgr';
+
+TABLE CREATION
+
+create table if not exists table3(col1 int,col2 array<string>,col3 string,col4 int)row format delimited fields terminated by',' collection items terminated by':' lines terminated by'\n' stored as textfile;
+create external table if not exists table2(col1 int,col2 array<string>,col3 string,col4 int)row format delimited fields terminated by',' collection items terminated by':' lines terminated by'\n' stored as textfile location'/user/jivesh/emp';
+load data local inpath'/home/jivesh/files/table1'into table table2;
